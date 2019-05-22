@@ -103,7 +103,7 @@
 					<StandardListItem
 						title="{CategoryName}"
 						type="Active"
-						counter="{NumberOfProducts}"
+						
 						press=".onCategoryListItemPress"
 						tooltip="{i18n>openCategoryProducts} {CategoryName}">
 						<customData>
