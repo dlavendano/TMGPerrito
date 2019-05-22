@@ -3,13 +3,15 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/Device",
 	"../model/formatter",
-	"sap/m/MessageBox"
+	"sap/m/MessageBox",
+	"sap/m/MessageToast"
 ], function(
 	BaseController,
 	JSONModel,
 	Device,
 	formatter,
-	MessageBox
+	MessageBox,
+	MessageToast
 ) {
 	"use strict";
 
@@ -200,7 +202,9 @@ sap.ui.define([
 		 * @public
 		 */
 		onProceedButtonPress: function () {
-			this.getRouter().navTo("checkout");
+			this.getRouter().navTo("home");
+			var sMessage = this.getResourceBundle().getText("avatarButtonMessageToastText");
+			MessageToast.show(sMessage);
 		}
 	});
 });

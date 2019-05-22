@@ -1,167 +1,55 @@
-<mvc:View
-	controllerName="sap.ui.demo.cart.controller.Cart"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc">
-	<Page
-		id="page"
-		title="{cfg>/pageTitle}"
-		backgroundDesign="Solid"
-		showNavButton="{appView>/smallScreenMode}"
-		navButtonPress=".onBack"
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="sap.ui.demo.cart.controller.Cart">
+	<Page id="page" title="Contacto" backgroundDesign="Solid" showNavButton="{appView>/smallScreenMode}" navButtonPress=".onBack"
 		showFooter="true">
 		<landmarkInfo>
-			<PageAccessibleLandmarkInfo
-				rootRole="Region"
-				rootLabel="{i18n>Cart_rootLabel}"
-				contentRole="Main"
-				contentLabel="{i18n>Cart_contentLabel}"
-				footerRole="Region"
-				footerLabel="{i18n>Cart_footerLabel}"
-				headerRole="Region"
-				headerLabel="{i18n>Cart_headerLabel}"/>
+			<PageAccessibleLandmarkInfo rootRole="Region" rootLabel="{i18n>Cart_rootLabel}" contentRole="Main" contentLabel="{i18n>Cart_contentLabel}"
+				footerRole="Region" footerLabel="{i18n>Cart_footerLabel}" headerRole="Region" headerLabel="{i18n>Cart_headerLabel}"/>
 		</landmarkInfo>
-		<headerContent>
-			<Button
-				id="editButton"
-				icon="sap-icon://edit"
-				enabled="{parts: [
-					{path: 'cartProducts>/cartEntries'},
-					{path: 'cartProducts>/savedForLaterEntries'}
-				 ], formatter : '.formatter.hasItems'}"
-				visible="{cfg>/notInDelete}"
-				press=".onEditOrDoneButtonPress"
-				tooltip="{i18n>cartEditButtonTooltip}"/>
-		</headerContent>
 		<footer>
 			<Toolbar>
-				<Text
-					id="totalPriceText"
-					text="{
-						path : 'cartProducts>/cartEntries',
-						formatter : '.formatter.totalPrice'
-					} EUR"
-					class="sapUiTinyMarginBegin"/>
 				<ToolbarSpacer/>
-				<Button
-					id="proceedButton"
-					type="Accept"
-					text="{i18n>cartProceedButtonText}"
-					enabled="{
-						path: 'cartProducts>/cartEntries',
-						formatter: '.formatter.hasItems'
-					}"
-					visible="{cfg>/notInDelete}"
+				<Button id="proceedButton" type="Accept" text="{i18n>cartProceedButtonText}" enabled="true" visible="{cfg>/notInDelete}"
 					press=".onProceedButtonPress"/>
-				<Button
-					id="doneButton"
-					text="{i18n>cartDoneButtonText}"
-					enabled="true"
-					visible="{cfg>/inDelete}"
-					press=".onEditOrDoneButtonPress"/>
+				<Button id="doneButton" text="{i18n>cartDoneButtonText}" enabled="true" visible="{cfg>/inDelete}" press=".onEditOrDoneButtonPress"/>
 			</Toolbar>
 		</footer>
 		<content>
-			<List
-				id="entryList"
-				footerText="{
-					path : 'cartProducts>/savedForLaterEntries',
-					formatter : '.formatter.footerTextForCart'
-				}"
-				mode="{cfg>/listMode}"
-				delete=".onCartEntriesDelete"
-				selectionChange=".onEntryListSelect"
-				noDataText="{i18n>cartNoData}"
-				items="{
-					path : 'cartProducts>/cartEntries',
-					sorter : {
-						path : 'Name',
-						descending : false
-					}
-				}">
-				<items>
-					<ObjectListItem
-						intro="{cartProducts>Quantity} x"
-						type="{cfg>/listItemType}"
-						icon="{
-							path : 'cartProducts>PictureUrl',
-							formatter : '.formatter.pictureUrl'
-						}"
-						title="{cartProducts>Name}"
-						number="{
-							path : 'cartProducts>Price',
-							formatter : '.formatter.price'
-						}"
-						numberUnit="EUR"
-						press=".onEntryListPress"
-						iconDensityAware="false">
-						<attributes>
-							<ObjectAttribute
-								active="true"
-								press=".onSaveForLater"
-								text="{i18n>cartSaveForLaterLinkText}"/>
-						</attributes>
-						<firstStatus>
-							<ObjectStatus
-								text="{
-									path : 'cartProducts>Status',
-									formatter : '.formatter.statusText'
-								}"
-								state="{
-									path : 'cartProducts>Status',
-									formatter : '.formatter.statusState'
-								}"/>
-						</firstStatus>
-					</ObjectListItem>
-				</items>
-			</List>
-			<List
-				id="saveForLaterList"
-				mode="{cfg>/listMode}"
-				showNoData="false"
-				delete=".onSaveForLaterDelete"
-				selectionChange=".onEntryListSelect"
-				items="{
-					path : 'cartProducts>/savedForLaterEntries',
-					sorter : {
-						path : 'Name',
-						descending : false
-					}
-				}">
-				<items>
-					<ObjectListItem
-						type="{cfg>/listItemType}"
-						icon="{
-							path : 'cartProducts>PictureUrl',
-							formatter : '.formatter.pictureUrl'
-						}"
-						title="{cartProducts>Name}"
-						number="{
-							path : 'cartProducts>Price',
-							formatter : '.formatter.price'
-						}"
-						numberUnit="EUR"
-						press=".onEntryListPress"
-						iconDensityAware="false">
-						<attributes>
-							<ObjectAttribute
-								active="true"
-								press=".onAddBackToBasket"
-								text="{i18n>cartAddToCartLinkText}"/>
-						</attributes>
-						<firstStatus>
-							<ObjectStatus
-								text="{
-									path : 'cartProducts>Status',
-									formatter : '.formatter.statusText'
-								}"
-								state="{
-									path : 'cartProducts>Status',
-									formatter : '.formatter.statusState'
-								}"/>
-						</firstStatus>
-					</ObjectListItem>
-				</items>
-			</List>
+			<List id="entryList" mode="{cfg>/listMode}" delete=".onCartEntriesDelete" selectionChange=".onEntryListSelect"
+				noDataText="{i18n>cartNoData}"></List>
+			<sap.ui.core:InvisibleText xmlns:sap.ui.core="sap.ui.core" text="InvisibleText" id="text0"/>
+			<FeedListItem icon="sap-icon://contacts" sender="Total Marketing Group"
+				text="Dirección: Calle 26 # 81-95&#10;Teléfono: (571)657 83 00&#10;E-mail: totalmg@totalmarketingroup.com&#10;facebook.com/totalmarketigroup&#10;twitter: @TMGGinnocacion"
+				info="Waiting for Approval" id="item1"/>
+			<sap.ui.layout.form:Form editable="true" xmlns:sap.ui.layout.form="sap.ui.layout.form" id="form0">
+				<sap.ui.layout.form:formContainers>
+					<sap.ui.layout.form:FormContainer title="Envianos tu información" id="container1">
+						<sap.ui.layout.form:formElements>
+							<sap.ui.layout.form:FormElement label="Nombre" id="element1">
+								<sap.ui.layout.form:fields>
+									<Input width="100%" id="input1"/>
+								</sap.ui.layout.form:fields>
+							</sap.ui.layout.form:FormElement>
+							<sap.ui.layout.form:FormElement xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:sap.ui.layout.form="sap.ui.layout.form" label="Celular"
+								id="element1_copy3">
+								<sap.ui.layout.form:fields>
+									<Input width="100%" id="input1_copy3"/>
+								</sap.ui.layout.form:fields>
+							</sap.ui.layout.form:FormElement>
+							<sap.ui.layout.form:FormElement xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:sap.ui.layout.form="sap.ui.layout.form" label="Correo"
+								id="element1_copy4">
+								<sap.ui.layout.form:fields>
+									<Input width="100%" id="input1_copy4"/>
+								</sap.ui.layout.form:fields>
+							</sap.ui.layout.form:FormElement>
+						</sap.ui.layout.form:formElements>
+					</sap.ui.layout.form:FormContainer>
+				</sap.ui.layout.form:formContainers>
+				<sap.ui.layout.form:layout>
+					<sap.ui.layout.form:ResponsiveGridLayout id="layout0"/>
+				</sap.ui.layout.form:layout>
+			</sap.ui.layout.form:Form>
+			<Image src="sap/ui/cart/img/logo.jpg" width="140px" height="140px" id="image0"/>
+			<List id="saveForLaterList" mode="{cfg>/listMode}" showNoData="false" delete=".onSaveForLaterDelete" selectionChange=".onEntryListSelect"></List>
 		</content>
 	</Page>
 </mvc:View>

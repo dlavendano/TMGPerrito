@@ -29,10 +29,6 @@
 						text="{i18n>welcomeHeadline}"/>
 				</contentMiddle>
 				<contentRight>
-					<Button
-						icon="sap-icon://customer"
-						press=".onAvatarPress"
-						tooltip="{i18n>avatarButtonTooltip}"/>
 					<ToggleButton
 						icon="sap-icon://cart"
 						pressed="{= ${appView>/layout}.startsWith('ThreeColumns') }"
