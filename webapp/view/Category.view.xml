@@ -69,7 +69,6 @@
 											 text="{SupplierName}"/>
 							<ObjectAttribute visible="{device>/system/desktop}"
 											 active="true"
-											 text="{i18n>CompareWith}"
 											 press=".compareProducts"/>
 						</attributes>
 						<firstStatus>
