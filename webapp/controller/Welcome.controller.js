@@ -23,6 +23,8 @@ sap.ui.define([
 		onInit: function () {
 			var oViewModel = new JSONModel({
 				welcomeCarouselShipping: 'sap/ui/demo/cart/img/PerritoLindo.jpg',
+				welcomeCarouselClientes: 'sap/ui/demo/cart/img/Clientes-TMG.jpeg',
+				welcomeCarouselSectores: 'sap/ui/demo/cart/img/Sectores-TMG.jpg',
 				Promoted: [],
 				Viewed: [],
 				Favorite: [],
