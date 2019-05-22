@@ -22,7 +22,7 @@
 		<headerContent>
 			<Button
 				id="masterListFilterButton"
-				icon="sap-icon://filter"
+				icon="sap-icon://mail"
 				press=".onFilter"/>
 		</headerContent>
 		<content>
