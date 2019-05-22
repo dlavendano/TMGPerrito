@@ -51,8 +51,7 @@
 							showPageIndicator="false"
 							loop="true"
 							pageChanged=".onCarouselPageChanged"
-							visible="{=!${device>/system/phone}}"
-							tooltip="{i18n>welcomeDescription}">
+							visible="{=!${device>/system/phone}}">
 							<pages>
 								<VBox renderType="Bare">
 									<Image
