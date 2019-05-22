@@ -30,7 +30,7 @@
 				</contentMiddle>
 				<contentRight>
 					<ToggleButton
-						icon="sap-icon://cart"
+						icon="sap-icon://email"
 						pressed="{= ${appView>/layout}.startsWith('ThreeColumns') }"
 						tooltip="{i18n>toCartButtonTooltip}"
 						press=".onToggleCart">

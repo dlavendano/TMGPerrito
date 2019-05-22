@@ -12,7 +12,7 @@
 					<Title level="H2" text="{Name}"/>
 				</contentMiddle>
 				<contentRight>
-					<ToggleButton icon="sap-icon://cart" pressed="{= ${appView>/layout}.startsWith('ThreeColumns') }" tooltip="{i18n>toCartButtonTooltip}" press=".onToggleCart">
+					<ToggleButton icon="sap-icon://email" pressed="{= ${appView>/layout}.startsWith('ThreeColumns') }" tooltip="{i18n>toCartButtonTooltip}" press=".onToggleCart">
 					</ToggleButton>
 				</contentRight>
 			</Bar>
